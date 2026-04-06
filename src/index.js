@@ -30,6 +30,10 @@ app.get("/video", async (req, res) => { // Route for streaming video.
     fs.createReadStream(videoPath).pipe(res);
 });
 
+app.get("/health", (req, res) => { // Route for health check.
+    res.status(200).send("OK. The microservice is healthy.");
+});
+
 //
 // Starts the HTTP server.
 //
